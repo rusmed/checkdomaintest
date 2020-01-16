@@ -12,7 +12,10 @@ class GetDomainPricesParams extends Model
     public function rules()
     {
         return [
-            ['search', 'required']
+            ['search', 'required'],
+            ['search', 'filter', 'filter'=>'trim'],
+            ['search', 'filter', 'filter'=>'mb_strtolower'],
+            ['search', 'match', 'pattern' => '/^(?!\-)(?:[a-zA-Z\d\-]{0,62}[a-zA-Z\d]){1}$/']
         ];
     }
 

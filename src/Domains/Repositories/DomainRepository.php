@@ -20,4 +20,13 @@ class DomainRepository
     {
         return $this->em->findOneBy(['domain' => $domain]);
     }
+
+    /**
+     * @param string[] $domains
+     * @return array
+     */
+    public function findByDomains(array $domains)
+    {
+        return $this->em->findBy(['domain' => $domains]);
+    }
 }
